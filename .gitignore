@@ -1,0 +1,5 @@
+/node_modules/
+/app/scss/
+/**/*.psd
+/PSD/
+/**/Thumbs.db
