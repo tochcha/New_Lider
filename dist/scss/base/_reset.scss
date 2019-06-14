@@ -1,0 +1,571 @@
+/* переменные и миксины */
+$min-width: 320px;
+$max-width: 1440px;
+$base-bg: #fafafa;
+$base-font-size: 18px;
+$base-line-height: 1.6;
+$base-font-family: HelveticaCustom, Arial, sans-serif;
+$custom-font-family: Bebas, sans-serif;
+$custom2-font-family: Gotham, Arial, sans-serif;
+$link-color: #aaa;
+$link-color-hover: #aaa;
+
+/* main variables */
+
+//text, titles
+$text-color: #202020;
+$title-color: #202020;
+$light-color: #aaa;
+$gray-color: #e5e5e5;
+$orange-color: #F4991D;
+
+$font-size-h1: 48px;
+$line-height-h1: 1.25;
+$font-size-h2: 36px;
+$line-height-h2: 1.25;
+$font-size-h3: 24px;
+$line-height-h3: 1.25;
+
+
+
+$fs52:3.250em;
+$fs50:3.125em;
+$fs48:3rem;
+$fs47:2.9375rem;
+$fs46:2.2.875rem;
+$fs45:2.8125rem;
+$fs44:2.75rem;
+$fs43:2.6875rem;
+$fs42:2.625rem;
+$fs41:2.5625rem;
+$fs40:2.5rem;
+$fs39:2.4375rem;
+$fs38:2.375rem;
+$fs37:2.3125rem;
+$fs36:2.25rem;
+$fs35:2.1875rem;
+$fs34:2.125rem;
+$fs33:2.0625rem;
+$fs32:2rem;
+$fs31:1.9375rem;
+$fs30:1.875rem;
+$fs29:1.8125rem;
+$fs28:1.75rem;
+$fs27:1.6875rem;
+$fs26:1.625rem;
+$fs25:1.5625rem;
+$fs24:1.5rem;
+$fs23:1.4375rem;
+$fs22:1.375rem;
+$fs21:1.3125rem;
+$fs20:1.25rem;
+$fs19:1.1875rem;
+$fs18:1.125rem;
+$fs17:1.0625rem;
+$fs16:1rem;
+$fs15:0.9375rem;
+$fs14:0.875rem;
+$fs13:0.8125rem;
+$fs12:0.75rem;
+$fs11:0.6875rem;
+
+@mixin line-clamp($numLines : 5, $lineHeight: 1.3) {
+	overflow: hidden;
+	text-overflow: -o-ellipsis-lastline;
+	text-overflow: ellipsis;
+	display: block;
+	/* autoprefixer: off */
+	display: -webkit-box;
+	-webkit-line-clamp: $numLines;
+	-webkit-box-orient: vertical;
+	max-height: $numLines * $lineHeight + unquote('em');
+	// вставлять как-то так: @include line-clamp(6); 6 - 6 строк
+}
+
+@mixin placeholder {
+	&.placeholder {
+		@content;
+	}
+
+	&:-moz-placeholder {
+		@content;
+	}
+
+	&::-moz-placeholder {
+		@content;
+	}
+
+	&:-ms-input-placeholder {
+		@content;
+	}
+
+	&::-webkit-input-placeholder {
+		@content;
+	}
+}
+
+@mixin text-decoration {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 0%;
+	content: '.';
+	color: transparent;
+	background: #989b9d;
+	height: 1px;
+	transition: all 0.4s;
+}
+
+* {
+	box-sizing: border-box;
+	outline: none !important;
+}
+
+/* reset */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+ul {
+	margin-top: 0;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+	display: block;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-width: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+html {
+	font-size: 100%;
+	font-size: 1rem;
+	line-height: $base-line-height;
+	-webkit-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	height: 100%;
+	width: 100%;
+	&.mm-opened {
+		height: auto;
+	}
+}
+
+body {
+	color: $text-color;
+	margin: 0px;
+	padding: 0px;
+	font-family: $base-font-family;
+	background-color: $base-bg;
+	font-size: $base-font-size;
+	height: 100%;
+	line-height: $base-line-height;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+input,
+textarea {
+	color: #333;
+	font-family: $base-font-family;
+	outline: none;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+input[type="button"],
+input[type="submit"],
+button {
+	cursor: pointer
+}
+
+td {
+	margin: 0px;
+	padding: 0px;
+}
+
+form {
+	padding: 0px;
+	margin: 0px;
+}
+
+a,
+input[type=submit],
+input[type=button],
+button {
+	-webkit-appearance: none;
+	outline: none !important;
+}
+
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.clearfix:after,
+.wrapper:after,
+.row:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+a {
+	color: $link-color;
+	text-decoration: underline;
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+	&:visited,
+	&:hover {
+		text-decoration: none;
+		color: $link-color;
+	}
+
+	&:active,
+	&:focus {
+		outline: none;
+	}
+
+	&:focus {
+		text-decoration: none;
+	}
+
+	&:hover {
+		color: $link-color-hover;
+	}
+}
+
+a:active {
+	background-color: transparent;
+}
+
+textarea,
+input[type=url],
+input[type=search],
+input[type=number],
+input[type=password],
+input[type=tel],
+input[type=text],
+input[type=email] {
+	height: 38px;
+	border: 1px solid $light-color;
+	background-color: #fff;
+	margin: 0;
+	font: 24px/38px $base-font-family;
+	color: $light-color;
+	padding: 0 15px;
+	vertical-align: middle;
+	display: inline-block;
+	max-width: 100%;
+
+	@include placeholder {
+		color: #aaa;
+	}
+}
+
+textarea {
+	width: 222px;
+	height: 102px;
+	font: 16px/20px $base-font-family;
+	overflow: auto;
+}
+
+@keyframes pulsemy {
+	from {
+		box-shadow: transparentize(#F4991D, .9) 0 0 4px 0, transparentize(#F4991D, 1) 0 0 8px 35px;
+	}
+
+	to {
+		box-shadow: transparentize(#F4991D, 1) 0 0 8px 50px, transparentize(#F4991D, .9) 0 0 4px 0;
+	}
+}
+
+@keyframes pulsemy-hover {
+	from {
+		box-shadow: transparentize(#000, .8) 0 0 4px 0, transparentize(#000, 1) 0 0 8px 35px;
+	}
+
+	to {
+		box-shadow: transparentize(#000, 1) 0 0 8px 80px, transparentize(#000, .9) 0 0 4px 0;
+	}
+}
+
+@keyframes pulsemy-none {
+	from {
+		box-shadow: transparentize(#000, .8) 0 0 0 0, transparentize(#000, 1) 0 0 0 0;
+	}
+
+	to {
+		box-shadow: transparentize(#000, 1) 0 0 0 0, transparentize(#000, .9) 0 0 0 0;
+	}
+}
+
+// фон автозаполненных полей
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 0 white inset !important;
+}
+
+// цвет автозаполнения
+input:-webkit-autofill {
+    -webkit-text-fill-color: #bdbdbd !important;
+}
+
+.button,
+a.button,
+input[type=button],
+input[type=submit] {
+	height: 60px;
+	border: 1px solid $text-color;
+	background-color: #fff;
+	font: 24px/58px $base-font-family;
+	transition: .2s;
+	margin: 0;
+	padding: 0 52px;
+	color: $text-color;
+	vertical-align: middle;
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	border-radius: 5px;
+	max-width: 100%;
+	&:hover {
+		background-color: $orange-color;
+		border-color: $orange-color;
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
+::-webkit-input-placeholder {
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	opacity: 1;
+}
+
+:focus::-webkit-input-placeholder {
+	color: transparent !important;
+}
+
+:focus:-ms-input-placeholder {
+	color: transparent !important;
+}
+
+:focus::-moz-placeholder {
+	color: transparent !important;
+}
+
+textarea:invalid,
+input:invalid {
+	box-shadow: none;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+	//color: red;
+}
+
+body input:required:valid,
+body textarea:required:valid {
+	//color: green;
+}
+
+.hidden {
+	display: none;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border-style: none;
+	height: auto;
+	max-width: 100%;
+}
+
+.pull-left {
+	float: left;
+	margin: 0 11px 3px 0;
+}
+
+.pull-right {
+	float: right;
+	margin-left: 9px;
+	margin: 0 0 3px 11px;
+}
+
+//для картинок wp
+.alignleft {
+	float: left;
+	margin: 0 11px 3px 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 3px 11px;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto 22px;
+}
+
+
+
+/* text position */
+
+.text-left {
+	text-align: left !important
+}
+
+.text-center {
+	text-align: center !important
+}
+
+.text-right {
+	text-align: right !important
+}
+
+.nowrap {
+	white-space: nowrap !important;
+}
+
+/* для photobox */
+.pbWrapper > div {
+	width: 1200px;
+	height: 700px;
+	max-width: 90%;
+	max-height: 90%;
+}
+
+.pbWrapper {
+	max-width: 100%;
+}
+/* для photobox end */
